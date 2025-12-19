@@ -6,6 +6,7 @@ from langgraph.graph import StateGraph, END
 from graph.state import AgentState
 from agents.critic import critic_agent
 from agents.planner import planner_agent
+from agents.retriever import retriever_agent
 
 
 def build_graph():
@@ -13,9 +14,11 @@ def build_graph():
 
     graph.add_node("planner", planner_agent)
     graph.add_node("critic", critic_agent)
+    graph.add_node("retriever", retriever_agent)
 
     graph.set_entry_point("planner")
-    graph.add_edge("planner", "critic")
+    graph.add_edge("planner", "retriever")
+    graph.add_edge("retriever", "critic")
     graph.add_edge("critic", END)
 
     return graph.compile()

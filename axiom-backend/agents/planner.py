@@ -13,6 +13,8 @@ def planner_agent(state: AgentState) -> AgentState:
         "You are a senior software architect.\n\n"
         "Break the following task into clear, ordered development steps.\n\n"
         f"TASK:\n{task}\n\n"
+        "Do not add any introductory text. Go straight to the point."
+        "Also keep the headings and contents inside a same list items and not separete."
         "Return a numbered list."
     )
 
