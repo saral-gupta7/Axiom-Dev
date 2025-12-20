@@ -1,32 +1,15 @@
 import React, { useState } from "react";
 import { cn } from "../lib/utils";
 import { useMutation } from "@tanstack/react-query";
-import generateAxiom from "../lib/api";
+import generateAxiom from "../lib/generateAxiom";
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 const Searchbar = () => {
   const [prompt, setPrompt] = useState("");
-  // const [error, setError] = useState("");
-  // const [loading, setLoading] = useState(false);
-  // const [data, setData] = useState(null);
-  //
   const mutation = useMutation({ mutationFn: generateAxiom });
 
-  // const handleGenerate = async () => {
-  //   try {
-  //     setLoading(true);
-  //     setError("");
-
-  //     const res = await generateAxiom(prompt);
-  //     setData(res);
-  //   } catch (error) {
-  //     setError("Something went wrong");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
   return (
     <div>
       <input

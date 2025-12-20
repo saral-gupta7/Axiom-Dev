@@ -1,8 +1,7 @@
 import axios from "axios";
 
-const generateAxiom = async (prompt: string) => {
-  const res = await axios.post("http://16.170.236.211:8000/run", { prompt });
-  return res.data;
-};
+const api = axios.create({
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+});
 
-export default generateAxiom;
+export default api;
